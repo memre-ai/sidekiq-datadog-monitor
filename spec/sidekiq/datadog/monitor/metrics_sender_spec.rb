@@ -45,7 +45,7 @@ RSpec.describe Sidekiq::Datadog::Monitor::MetricsSender do
   end
 
   it 'posts scheduled size' do
-    expect(statsd).to have_received(:gauge).with('sidekiq.scheduled', 500, { tags: schedule_tags })
+    expect(statsd).to have_received(:gauge).with('sidekiq.scheduled', 500, { tags: %w[scheduled_size:500] })
   end
 
   it 'posts process utilization' do
